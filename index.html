@@ -28,9 +28,6 @@
       border-color: #dc2626 !important;
       color: white !important;
     }
-    .mic-recording i {
-      color: white !important;
-    }
     @keyframes pulse-red {
       0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
       50% { transform: scale(1.04); box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
@@ -39,20 +36,21 @@
   </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-2 sm:p-4">
-  <div id="app" class="w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden relative border-4 border-emerald-400 p-4 sm:p-6 my-2">
 
+  <div id="app" class="w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden relative border-4 border-emerald-400 p-4 sm:p-6 my-2">
+    
     <div class="bg-emerald-50 rounded-2xl p-4 border-2 border-emerald-200 mb-4 text-center">
       <div class="text-3xl mb-1">🌱🔍</div>
       <h1 class="text-2xl sm:text-3xl font-black text-emerald-800 tracking-tight">
         초등 4학년 관찰 보고서 쓰기
       </h1>
       <p class="text-emerald-700 text-xs sm:text-sm mt-1 font-bold">
-        타자가 힘들면 <strong class="text-rose-600">🎤 말하기 버튼</strong>을 누르고 또박또박 말해보세요!
+        타자가 힘들면 <strong class="text-rose-600">🎤 말하기 버튼</strong>을 누르고 말해보세요!
       </p>
     </div>
 
     <form id="reportForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
-      <!-- 학생 기본 정보 -->
+      
       <div class="bg-slate-50 rounded-2xl p-4 border-2 border-slate-200">
         <h2 class="text-base font-black text-slate-800 flex items-center gap-2 mb-3">
           <span class="bg-emerald-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">1</span>
@@ -77,7 +75,6 @@
         </div>
       </div>
 
-      <!-- 처음 -->
       <div class="bg-sky-50/60 rounded-2xl p-4 border-2 border-sky-300">
         <div class="flex justify-between items-center mb-1">
           <div class="flex items-center gap-1.5">
@@ -85,7 +82,7 @@
             <h2 class="text-base font-black text-gray-800">관찰 계획 및 동기</h2>
           </div>
           <button type="button" onclick="toggleSTT('intro', this)"
-            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-sky-300 active:bg-sky-100 text-sky-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition cursor-pointer">
+            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-sky-300 active:bg-sky-100 text-sky-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition">
             <i class="fas fa-microphone text-sky-600"></i> <span>말하기</span>
           </button>
         </div>
@@ -95,7 +92,6 @@
           class="w-full p-3 bg-white rounded-xl border border-gray-300 focus:border-sky-500 outline-none transition resize-none"></textarea>
       </div>
 
-      <!-- 가운데 1 -->
       <div class="bg-amber-50/60 rounded-2xl p-4 border-2 border-amber-300">
         <div class="flex justify-between items-center mb-1">
           <div class="flex items-center gap-1.5">
@@ -103,7 +99,7 @@
             <h2 class="text-base font-black text-gray-800">관찰 절차 및 초기 변화</h2>
           </div>
           <button type="button" onclick="toggleSTT('body1', this)"
-            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-amber-300 active:bg-amber-100 text-amber-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition cursor-pointer">
+            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-amber-300 active:bg-amber-100 text-amber-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition">
             <i class="fas fa-microphone text-amber-600"></i> <span>말하기</span>
           </button>
         </div>
@@ -113,7 +109,6 @@
           class="w-full p-3 bg-white rounded-xl border border-gray-300 focus:border-amber-500 outline-none transition resize-none"></textarea>
       </div>
 
-      <!-- 가운데 2 -->
       <div class="bg-indigo-50/60 rounded-2xl p-4 border-2 border-indigo-300">
         <div class="flex justify-between items-center mb-1">
           <div class="flex items-center gap-1.5">
@@ -121,7 +116,7 @@
             <h2 class="text-base font-black text-gray-800">관찰 결과 (사실 위주)</h2>
           </div>
           <button type="button" onclick="toggleSTT('body2', this)"
-            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-indigo-300 active:bg-indigo-100 text-indigo-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition cursor-pointer">
+            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-indigo-300 active:bg-indigo-100 text-indigo-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition">
             <i class="fas fa-microphone text-indigo-600"></i> <span>말하기</span>
           </button>
         </div>
@@ -131,7 +126,6 @@
           class="w-full p-3 bg-white rounded-xl border border-gray-300 focus:border-indigo-500 outline-none transition resize-none"></textarea>
       </div>
 
-      <!-- 끝 -->
       <div class="bg-rose-50/60 rounded-2xl p-4 border-2 border-rose-300">
         <div class="flex justify-between items-center mb-1">
           <div class="flex items-center gap-1.5">
@@ -139,7 +133,7 @@
             <h2 class="text-base font-black text-gray-800">새롭게 알게 된 점 및 느낀 점</h2>
           </div>
           <button type="button" onclick="toggleSTT('conclusion', this)"
-            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-rose-300 active:bg-rose-100 text-rose-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition cursor-pointer">
+            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-rose-300 active:bg-rose-100 text-rose-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition">
             <i class="fas fa-microphone text-rose-600"></i> <span>말하기</span>
           </button>
         </div>
@@ -149,22 +143,21 @@
           class="w-full p-3 bg-white rounded-xl border border-gray-300 focus:border-rose-500 outline-none transition resize-none"></textarea>
       </div>
 
-      <!-- 제출 버튼 -->
       <div class="pt-2">
         <button type="submit" id="submitBtn"
-          class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 active:scale-95 text-white font-black py-4 px-4 rounded-2xl shadow-xl transition flex items-center justify-center gap-2 text-lg sm:text-xl cursor-pointer">
+          class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 active:scale-95 text-white font-black py-4 px-4 rounded-2xl shadow-xl transition flex items-center justify-center gap-2 text-lg sm:text-xl">
           <span>보고서 제출하고 AI 채점 결과 받기</span>
           <i class="fas fa-paper-plane"></i>
         </button>
       </div>
     </form>
 
-    <!-- 결과 모달 -->
     <div id="resultModal" class="fixed inset-0 bg-black/70 backdrop-blur-xs hidden flex items-center justify-center p-4 z-50">
       <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border-4 border-emerald-400 text-center">
         <div class="text-5xl mb-2">🎉</div>
         <h3 class="text-2xl font-black text-gray-800">제출 및 채점 완료!</h3>
         <p class="text-gray-500 text-xs mt-1 mb-4">선생님의 구글 시트로 안전하게 전송되었습니다.</p>
+
         <div class="bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 mb-3 text-left space-y-2">
           <div class="flex justify-between items-center border-b border-amber-200 pb-2">
             <span class="text-gray-700 font-bold text-sm">종합 점수</span>
@@ -179,42 +172,44 @@
             <span id="modalExpressionLevel" class="font-black text-indigo-800 bg-indigo-100 px-2 py-0.5 rounded-md">잘하고 있어요</span>
           </div>
         </div>
+
         <div class="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-3.5 mb-5 text-left">
           <div class="text-xs font-black text-emerald-800 mb-1">💌 AI 선생님의 한마디</div>
           <p id="modalFeedback" class="text-xs text-emerald-950 font-medium leading-relaxed"></p>
         </div>
+
         <button onclick="closeModalAndReset()"
-          class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3.5 rounded-2xl transition shadow-lg text-lg cursor-pointer">
+          class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3.5 rounded-2xl transition shadow-lg text-lg">
           확인 (새로 작성하기)
         </button>
       </div>
     </div>
 
-    <!-- 로딩 오버레이 -->
     <div id="loading-overlay" class="absolute inset-0 bg-white/90 backdrop-blur-sm hidden flex flex-col justify-center items-center z-50">
       <div class="animate-spin rounded-full h-14 w-14 border-4 border-emerald-500 border-t-transparent mb-4"></div>
       <p class="text-lg font-black text-gray-700">AI 선생님이 채점 중입니다...</p>
     </div>
+
   </div>
 
   <script>
+    // 🔴 [필수] 큰따옴표 안에 구글 웹앱 URL을 입력하세요.
     const GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbx_ZYugav_XkV1xruF8qV-WGHjQwsDK1rjzZnmOJsVa-AQeBNYuZW-LJZZAhaw-ArTRKA/exec";
 
     let recognition = null;
     let isRecording = false;
     let currentTargetId = null;
     let currentActiveBtn = null;
-    let baseText = "";
-    let sessionFinalText = "";
 
+    // 음성 인식 함수
     function toggleSTT(targetId, btn) {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
       if (!SpeechRecognition) {
-        alert("이 기기나 브라우저에서는 마이크 음성 인식을 지원하지 않아요.\nChrome(크롬) 또는 Safari(사파리) 브라우저를 이용해 주세요!");
+        alert("이 브라우저는 음성 인식을 지원하지 않습니다.\nChrome(크롬) 또는 Safari(사파리) 브라우저를 이용해 주세요.");
         return;
       }
 
-      // 이미 녹음 중인 경우 버튼을 다시 누르면 중지
       if (isRecording) {
         stopSTT();
         return;
@@ -223,202 +218,122 @@
       const targetArea = document.getElementById(targetId);
       currentTargetId = targetId;
       currentActiveBtn = btn;
-      sessionFinalText = "";
-
-      // 기존 작성된 글이 있으면 뒤에 한 칸 띄우고 이어 쓰기
-      const existingText = targetArea.value.trim();
-      baseText = existingText ? existingText + " " : "";
+      const initialVal = targetArea.value ? targetArea.value.trim() + " " : "";
 
       try {
         recognition = new SpeechRecognition();
-        recognition.lang = "ko-KR";
-        // 초등학생이 생각하며 쉬어가도 끊기지 않도록 continuous 활성화
-        recognition.continuous = true;
+        recognition.lang = 'ko-KR';
+        recognition.continuous = false; // 모바일/PC 호환성 최적화
         recognition.interimResults = true;
-        recognition.maxAlternatives = 1;
 
-        recognition.onstart = function () {
+        recognition.onstart = function() {
           isRecording = true;
-          btn.classList.add("mic-recording");
-          btn.querySelector("span").textContent = "듣고 있어요 (누르면 완료)";
+          btn.classList.add('mic-recording');
+          btn.querySelector('span').textContent = "듣는 중...";
           if (navigator.vibrate) navigator.vibrate(50);
         };
 
-        recognition.onresult = function (event) {
-          let currentInterim = "";
-
-          for (let i = event.resultIndex; i < event.results.length; ++i) {
-            const transcript = event.results[i][0].transcript;
-            if (event.results[i].isFinal) {
-              sessionFinalText += transcript + " ";
-            } else {
-              currentInterim += transcript;
-            }
+        recognition.onresult = function(event) {
+          let text = "";
+          for (let i = 0; i < event.results.length; ++i) {
+            text += event.results[i][0].transcript;
           }
-
-          // 기본 글 + 확정된 글 + 현재 실시간 말하고 있는 글을 합쳐서 표시
-          targetArea.value = baseText + sessionFinalText + currentInterim;
+          targetArea.value = initialVal + text;
           targetArea.scrollTop = targetArea.scrollHeight;
         };
 
-        recognition.onerror = function (event) {
+        recognition.onerror = function(event) {
           console.warn("STT Error:", event.error);
-          if (event.error === "not-allowed") {
-            alert("마이크 사용 권한이 닫혀 있어요.\n브라우저 주소창 왼쪽 자물쇠(설정) 아이콘에서 마이크를 [허용]으로 켜주세요.");
-          } else if (event.error === "no-speech") {
-            // 소리가 잠시 안 들린 경우 조용히 유지
+          if (event.error === 'not-allowed') {
+            alert("마이크 사용 권한이 차단되어 있습니다.\n브라우저 주소창 왼쪽 설정에서 마이크를 [허용]으로 변경해 주세요.");
+          } else if (event.error === 'no-speech') {
+            // 소리 없을 때 조용히 리셋
           } else {
-            console.log("마이크 인식 상태:", event.error);
+            alert("마이크 오류: " + event.error);
           }
           stopSTT();
         };
 
-        recognition.onend = function () {
-          if (isRecording) {
-            stopSTT();
-          }
+        recognition.onend = function() {
+          stopSTT();
         };
 
         recognition.start();
       } catch (e) {
-        alert("마이크를 실행하지 못했습니다: " + e.message);
+        alert("마이크 실행 중 문제가 발생했습니다: " + e.message);
         stopSTT();
       }
     }
 
     function stopSTT() {
       if (recognition) {
-        try { recognition.stop(); } catch (e) {}
+        try { recognition.stop(); } catch(e) {}
         recognition = null;
       }
       isRecording = false;
+
       if (currentActiveBtn) {
-        currentActiveBtn.classList.remove("mic-recording");
-        currentActiveBtn.querySelector("span").textContent = "말하기";
+        currentActiveBtn.classList.remove('mic-recording');
+        currentActiveBtn.querySelector('span').textContent = "말하기";
         currentActiveBtn = null;
       }
-      if (currentTargetId) {
-        const area = document.getElementById(currentTargetId);
-        if (area) {
-          area.value = area.value.trim(); // 뒷부분 불필요한 공백 정리
-        }
-      }
       currentTargetId = null;
-      baseText = "";
-      sessionFinalText = "";
     }
 
-    function evaluateReport(data) {
-      var intro = (data.intro || "").trim();
-      var body1 = (data.body1 || "").trim();
-      var body2 = (data.body2 || "").trim();
-      var conclusion = (data.conclusion || "").trim();
-      var totalScore = 70;
-      var feedbackTips = [];
-
-      var isIntroOk = intro.length >= 10;
-      var isBody1Ok = body1.length >= 10;
-      var isBody2Ok = body2.length >= 10;
-      var isConcOk = conclusion.length >= 10;
-
-      var contentLevel = "보통이에요 👍";
-      if (isIntroOk && isBody1Ok && isBody2Ok && isConcOk) {
-        totalScore += 15;
-        contentLevel = "매우 훌륭해요 🌟";
-      } else {
-        totalScore += 8;
-        contentLevel = "노력하고 있어요 🌱";
-        feedbackTips.push("각 부분(처음, 가운데, 끝)의 설명을 두 문장 이상으로 조금 더 자세히 써보세요.");
-      }
-
-      var factRegex = /[0-9]|cm|mm|개|일|장|색|모양|줄기|잎|자라|변하|길이|크기|뿌리|꽃/;
-      var hasFacts = factRegex.test(body2);
-      var expressionLevel = "보통이에요 🙂";
-      if (hasFacts) {
-        totalScore += 15;
-        expressionLevel = "매우 정확해요 📏";
-      } else {
-        totalScore += 7;
-        expressionLevel = "조금 더 구체적으로 적어봐요 🔍";
-        feedbackTips.push("관찰 결과에 길이(cm), 개수, 색깔 같은 눈에 보이는 사실을 포함하면 더 좋습니다.");
-      }
-
-      var feedback = "";
-      if (totalScore >= 95) {
-        feedback = "관찰 계획부터 변화 과정, 구체적인 결과와 느낀 점까지 체계적이고 꼼꼼하게 아주 잘 썼습니다! 훌륭해요! 👏";
-      } else if (totalScore >= 80) {
-        feedback = "관찰한 내용을 생생하게 잘 기록했습니다! " + (feedbackTips.length > 0 ? feedbackTips.join(" ") : "멋진 관찰 보고서입니다!");
-      } else {
-        feedback = "관찰한 대상을 다시 한번 자세히 살펴보고, 눈에 보이는 특징을 수치를 넣어 구체적으로 적어보세요. 힘내세요! 💪";
-      }
-
-      return {
-        score: totalScore,
-        content_level: contentLevel,
-        expression_level: expressionLevel,
-        feedback: feedback
-      };
-    }
-
-    function showResult(evalResult) {
-      document.getElementById("modalScore").textContent = evalResult.score + "점";
-      document.getElementById("modalContentLevel").textContent = evalResult.content_level;
-      document.getElementById("modalExpressionLevel").textContent = evalResult.expression_level;
-      document.getElementById("modalFeedback").textContent = evalResult.feedback;
-      document.getElementById("resultModal").classList.remove("hidden");
-    }
-
+    // 폼 제출 처리
     async function handleFormSubmit(e) {
       e.preventDefault();
-      if (isRecording) stopSTT();
 
-      const loading = document.getElementById("loading-overlay");
-      loading.classList.remove("hidden");
+      if (isRecording) {
+        stopSTT();
+      }
+
+      if (GAS_WEBAPP_URL.includes("YOUR_DEPLOYMENT_ID")) {
+        alert("구글 웹앱 URL이 아직 설정되지 않았습니다.");
+        return;
+      }
+
+      const loading = document.getElementById('loading-overlay');
+      loading.classList.remove('hidden');
 
       const formData = {
-        gradeClass: document.getElementById("gradeClass").value.trim(),
-        studentNo: document.getElementById("studentNo").value.trim(),
-        studentName: document.getElementById("studentName").value.trim(),
-        intro: document.getElementById("intro").value.trim(),
-        body1: document.getElementById("body1").value.trim(),
-        body2: document.getElementById("body2").value.trim(),
-        conclusion: document.getElementById("conclusion").value.trim()
+        gradeClass: document.getElementById('gradeClass').value.trim(),
+        studentNo: document.getElementById('studentNo').value.trim(),
+        studentName: document.getElementById('studentName').value.trim(),
+        intro: document.getElementById('intro').value.trim(),
+        body1: document.getElementById('body1').value.trim(),
+        body2: document.getElementById('body2').value.trim(),
+        conclusion: document.getElementById('conclusion').value.trim()
       };
 
-      const localResult = evaluateReport(formData);
-
       try {
-        const controller = new AbortController();
-        const timer = setTimeout(function () { controller.abort(); }, 12000);
-
         const response = await fetch(GAS_WEBAPP_URL, {
           method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(formData),
-          signal: controller.signal
+          body: JSON.stringify(formData)
         });
+        
+        const res = await response.json();
+        loading.classList.add('hidden');
 
-        clearTimeout(timer);
-
-        let res = null;
-        try { res = await response.json(); } catch (parseErr) { res = null; }
-
-        loading.classList.add("hidden");
-        if (res && res.success && res.data) {
-          showResult(res.data);
+        if (res.success) {
+          document.getElementById('modalScore').textContent = res.data.score + "점";
+          document.getElementById('modalContentLevel').textContent = res.data.content_level;
+          document.getElementById('modalExpressionLevel').textContent = res.data.expression_level;
+          document.getElementById('modalFeedback').textContent = res.data.feedback;
+          document.getElementById('resultModal').classList.remove('hidden');
         } else {
-          showResult(localResult);
+          alert("채점 중 오류가 발생했습니다: " + res.message);
         }
       } catch (err) {
-        loading.classList.add("hidden");
-        showResult(localResult);
+        loading.classList.add('hidden');
+        alert("서버 통신 실패: 구글 웹앱 배포 권한을 확인해 주세요.");
       }
     }
 
     function closeModalAndReset() {
-      document.getElementById("resultModal").classList.add("hidden");
-      document.getElementById("reportForm").reset();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      document.getElementById('resultModal').classList.add('hidden');
+      document.getElementById('reportForm').reset();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
