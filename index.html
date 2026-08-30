@@ -28,6 +28,9 @@
       border-color: #dc2626 !important;
       color: white !important;
     }
+    .mic-recording i {
+      color: white !important;
+    }
     @keyframes pulse-red {
       0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
       50% { transform: scale(1.04); box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
@@ -44,11 +47,12 @@
         초등 4학년 관찰 보고서 쓰기
       </h1>
       <p class="text-emerald-700 text-xs sm:text-sm mt-1 font-bold">
-        타자가 힘들면 <strong class="text-rose-600">🎤 말하기 버튼</strong>을 누르고 말해보세요!
+        타자가 힘들면 <strong class="text-rose-600">🎤 말하기 버튼</strong>을 누르고 또박또박 말해보세요!
       </p>
     </div>
 
     <form id="reportForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+      <!-- 학생 기본 정보 -->
       <div class="bg-slate-50 rounded-2xl p-4 border-2 border-slate-200">
         <h2 class="text-base font-black text-slate-800 flex items-center gap-2 mb-3">
           <span class="bg-emerald-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">1</span>
@@ -73,6 +77,7 @@
         </div>
       </div>
 
+      <!-- 처음 -->
       <div class="bg-sky-50/60 rounded-2xl p-4 border-2 border-sky-300">
         <div class="flex justify-between items-center mb-1">
           <div class="flex items-center gap-1.5">
@@ -80,7 +85,7 @@
             <h2 class="text-base font-black text-gray-800">관찰 계획 및 동기</h2>
           </div>
           <button type="button" onclick="toggleSTT('intro', this)"
-            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-sky-300 active:bg-sky-100 text-sky-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition">
+            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-sky-300 active:bg-sky-100 text-sky-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition cursor-pointer">
             <i class="fas fa-microphone text-sky-600"></i> <span>말하기</span>
           </button>
         </div>
@@ -90,6 +95,7 @@
           class="w-full p-3 bg-white rounded-xl border border-gray-300 focus:border-sky-500 outline-none transition resize-none"></textarea>
       </div>
 
+      <!-- 가운데 1 -->
       <div class="bg-amber-50/60 rounded-2xl p-4 border-2 border-amber-300">
         <div class="flex justify-between items-center mb-1">
           <div class="flex items-center gap-1.5">
@@ -97,7 +103,7 @@
             <h2 class="text-base font-black text-gray-800">관찰 절차 및 초기 변화</h2>
           </div>
           <button type="button" onclick="toggleSTT('body1', this)"
-            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-amber-300 active:bg-amber-100 text-amber-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition">
+            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-amber-300 active:bg-amber-100 text-amber-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition cursor-pointer">
             <i class="fas fa-microphone text-amber-600"></i> <span>말하기</span>
           </button>
         </div>
@@ -107,6 +113,7 @@
           class="w-full p-3 bg-white rounded-xl border border-gray-300 focus:border-amber-500 outline-none transition resize-none"></textarea>
       </div>
 
+      <!-- 가운데 2 -->
       <div class="bg-indigo-50/60 rounded-2xl p-4 border-2 border-indigo-300">
         <div class="flex justify-between items-center mb-1">
           <div class="flex items-center gap-1.5">
@@ -114,7 +121,7 @@
             <h2 class="text-base font-black text-gray-800">관찰 결과 (사실 위주)</h2>
           </div>
           <button type="button" onclick="toggleSTT('body2', this)"
-            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-indigo-300 active:bg-indigo-100 text-indigo-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition">
+            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-indigo-300 active:bg-indigo-100 text-indigo-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition cursor-pointer">
             <i class="fas fa-microphone text-indigo-600"></i> <span>말하기</span>
           </button>
         </div>
@@ -124,6 +131,7 @@
           class="w-full p-3 bg-white rounded-xl border border-gray-300 focus:border-indigo-500 outline-none transition resize-none"></textarea>
       </div>
 
+      <!-- 끝 -->
       <div class="bg-rose-50/60 rounded-2xl p-4 border-2 border-rose-300">
         <div class="flex justify-between items-center mb-1">
           <div class="flex items-center gap-1.5">
@@ -131,7 +139,7 @@
             <h2 class="text-base font-black text-gray-800">새롭게 알게 된 점 및 느낀 점</h2>
           </div>
           <button type="button" onclick="toggleSTT('conclusion', this)"
-            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-rose-300 active:bg-rose-100 text-rose-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition">
+            class="mic-btn flex items-center gap-1.5 bg-white border-2 border-rose-300 active:bg-rose-100 text-rose-800 text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition cursor-pointer">
             <i class="fas fa-microphone text-rose-600"></i> <span>말하기</span>
           </button>
         </div>
@@ -141,15 +149,17 @@
           class="w-full p-3 bg-white rounded-xl border border-gray-300 focus:border-rose-500 outline-none transition resize-none"></textarea>
       </div>
 
+      <!-- 제출 버튼 -->
       <div class="pt-2">
         <button type="submit" id="submitBtn"
-          class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 active:scale-95 text-white font-black py-4 px-4 rounded-2xl shadow-xl transition flex items-center justify-center gap-2 text-lg sm:text-xl">
+          class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 active:scale-95 text-white font-black py-4 px-4 rounded-2xl shadow-xl transition flex items-center justify-center gap-2 text-lg sm:text-xl cursor-pointer">
           <span>보고서 제출하고 AI 채점 결과 받기</span>
           <i class="fas fa-paper-plane"></i>
         </button>
       </div>
     </form>
 
+    <!-- 결과 모달 -->
     <div id="resultModal" class="fixed inset-0 bg-black/70 backdrop-blur-xs hidden flex items-center justify-center p-4 z-50">
       <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border-4 border-emerald-400 text-center">
         <div class="text-5xl mb-2">🎉</div>
@@ -174,12 +184,13 @@
           <p id="modalFeedback" class="text-xs text-emerald-950 font-medium leading-relaxed"></p>
         </div>
         <button onclick="closeModalAndReset()"
-          class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3.5 rounded-2xl transition shadow-lg text-lg">
+          class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3.5 rounded-2xl transition shadow-lg text-lg cursor-pointer">
           확인 (새로 작성하기)
         </button>
       </div>
     </div>
 
+    <!-- 로딩 오버레이 -->
     <div id="loading-overlay" class="absolute inset-0 bg-white/90 backdrop-blur-sm hidden flex flex-col justify-center items-center z-50">
       <div class="animate-spin rounded-full h-14 w-14 border-4 border-emerald-500 border-t-transparent mb-4"></div>
       <p class="text-lg font-black text-gray-700">AI 선생님이 채점 중입니다...</p>
@@ -187,20 +198,23 @@
   </div>
 
   <script>
-    const GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzsdlAkHdQkpB7soSR9xbvAvQE2l6iMl4YPwHLLs86VMb0d-Sf-ktiZu9ZKyf_BHy0f6w/exec";
+    const GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbx_ZYugav_XkV1xruF8qV-WGHjQwsDK1rjzZnmOJsVa-AQeBNYuZW-LJZZAhaw-ArTRKA/exec";
 
     let recognition = null;
     let isRecording = false;
     let currentTargetId = null;
     let currentActiveBtn = null;
+    let baseText = "";
+    let sessionFinalText = "";
 
     function toggleSTT(targetId, btn) {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognition) {
-        alert("이 브라우저는 음성 인식을 지원하지 않습니다.\nChrome(크롬) 또는 Safari(사파리) 브라우저를 이용해 주세요.");
+        alert("이 기기나 브라우저에서는 마이크 음성 인식을 지원하지 않아요.\nChrome(크롬) 또는 Safari(사파리) 브라우저를 이용해 주세요!");
         return;
       }
 
+      // 이미 녹음 중인 경우 버튼을 다시 누르면 중지
       if (isRecording) {
         stopSTT();
         return;
@@ -209,48 +223,65 @@
       const targetArea = document.getElementById(targetId);
       currentTargetId = targetId;
       currentActiveBtn = btn;
-      const initialVal = targetArea.value ? targetArea.value.trim() + " " : "";
+      sessionFinalText = "";
+
+      // 기존 작성된 글이 있으면 뒤에 한 칸 띄우고 이어 쓰기
+      const existingText = targetArea.value.trim();
+      baseText = existingText ? existingText + " " : "";
 
       try {
         recognition = new SpeechRecognition();
         recognition.lang = "ko-KR";
-        recognition.continuous = false;
+        // 초등학생이 생각하며 쉬어가도 끊기지 않도록 continuous 활성화
+        recognition.continuous = true;
         recognition.interimResults = true;
+        recognition.maxAlternatives = 1;
 
         recognition.onstart = function () {
           isRecording = true;
           btn.classList.add("mic-recording");
-          btn.querySelector("span").textContent = "듣는 중...";
+          btn.querySelector("span").textContent = "듣고 있어요 (누르면 완료)";
           if (navigator.vibrate) navigator.vibrate(50);
         };
 
         recognition.onresult = function (event) {
-          let text = "";
-          for (let i = 0; i < event.results.length; ++i) {
-            text += event.results[i][0].transcript;
+          let currentInterim = "";
+
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            const transcript = event.results[i][0].transcript;
+            if (event.results[i].isFinal) {
+              sessionFinalText += transcript + " ";
+            } else {
+              currentInterim += transcript;
+            }
           }
-          targetArea.value = initialVal + text;
+
+          // 기본 글 + 확정된 글 + 현재 실시간 말하고 있는 글을 합쳐서 표시
+          targetArea.value = baseText + sessionFinalText + currentInterim;
           targetArea.scrollTop = targetArea.scrollHeight;
         };
 
         recognition.onerror = function (event) {
           console.warn("STT Error:", event.error);
           if (event.error === "not-allowed") {
-            alert("마이크 사용 권한이 차단되어 있습니다.\n브라우저 주소창 왼쪽 설정에서 마이크를 [허용]으로 변경해 주세요.");
+            alert("마이크 사용 권한이 닫혀 있어요.\n브라우저 주소창 왼쪽 자물쇠(설정) 아이콘에서 마이크를 [허용]으로 켜주세요.");
           } else if (event.error === "no-speech") {
+            // 소리가 잠시 안 들린 경우 조용히 유지
           } else {
-            alert("마이크 오류: " + event.error);
+            console.log("마이크 인식 상태:", event.error);
           }
           stopSTT();
         };
 
         recognition.onend = function () {
-          stopSTT();
+          if (isRecording) {
+            stopSTT();
+          }
         };
 
         recognition.start();
       } catch (e) {
-        alert("마이크 실행 중 문제가 발생했습니다: " + e.message);
+        alert("마이크를 실행하지 못했습니다: " + e.message);
         stopSTT();
       }
     }
@@ -266,7 +297,15 @@
         currentActiveBtn.querySelector("span").textContent = "말하기";
         currentActiveBtn = null;
       }
+      if (currentTargetId) {
+        const area = document.getElementById(currentTargetId);
+        if (area) {
+          area.value = area.value.trim(); // 뒷부분 불필요한 공백 정리
+        }
+      }
       currentTargetId = null;
+      baseText = "";
+      sessionFinalText = "";
     }
 
     function evaluateReport(data) {
